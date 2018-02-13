@@ -5,9 +5,9 @@ public class sortem
 
 	public static void main(String[] args) 
 	{
-		String [] poo = {"poo", "loo"};
-		String [] loo = {"shoo", "roo"};
-		mergeSort(poo,loo);
+		String [] test1 = { "apple","cucumber", "microsoft", "zorro",  "banana", "cherry", "mahogany","oreos", "pinata" };
+
+		System.out.print(Arrays.toString(mergeSort(test1)));
 	}
 
 	public static String [] mergeSort(String [] list) 
