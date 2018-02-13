@@ -5,24 +5,26 @@ public class sortem
 
 	public static void main(String[] args) 
 	{
-		String [] test1 = { "apple","cucumber", "microsoft", "zorro",  "banana", "cherry", "mahogany","oreos", "pinata" };
-
+		String [] test1 = {"va","gb","f","c"};
 		System.out.print(Arrays.toString(mergeSort(test1)));
+		
 	}
 
 	public static String [] mergeSort(String [] list) 
 	{
+	
 		if(list.length == 1)
 		{
 		return list;
 		}
-		
+		else
+		{
 		String [] l = Arrays.copyOfRange(list,0,list.length/2);
 		String [] r = Arrays.copyOfRange(list,list.length/2, list.length);
-	
 		return(merge(mergeSort(l),mergeSort(r)));
+		}
 	}
-	
+
 //	public static int partition(int [] list, int front, int back)
 	{
 		
@@ -64,6 +66,4 @@ public class sortem
 	
 		return full;
 	}
-	
-	
 }
