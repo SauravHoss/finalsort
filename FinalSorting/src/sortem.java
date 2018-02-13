@@ -7,6 +7,7 @@ public class sortem
 	{
 		String [] poo = {"poo", "loo"};
 		String [] loo = {"shoo", "roo"};
+		mergeSort(poo,loo);
 	}
 
 	public static String [] mergeSort(String [] list) 
