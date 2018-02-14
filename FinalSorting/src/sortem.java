@@ -66,4 +66,30 @@ public class sortem
 	
 		return full;
 	}
+	
+	//partiton attempt with bf
+	public static int partition(int [] list, int front, int back)
+	{
+		//Takes an array, picks first number as pivot and puts smaller numbers on left side, bigger on right
+		//Why is the run time so long did I do it wrong?
+	    int base = list[0];    
+	    int ni = front;
+	    int last = back;
+
+	    for(int i = 1; i < back; i++)
+	    {
+	        if(list[i] <= base)
+	        {
+	           swapperi(list,i,i-1);            
+	            ni = i;
+	        } 
+	        else if(list[i] > base && last > i)
+	        {
+	            swapperi(list, i, last);
+	            last--;
+	            i--;
+	        }
+	    }
+	    return ni;
+	}
 }
