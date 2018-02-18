@@ -7,12 +7,10 @@ public class sortem
 	{
 		String [] test1 = {"va","gb","f","c"};
 		System.out.print(Arrays.toString(mergeSort(test1)));
-		
 	}
 
 	public static String [] mergeSort(String [] list) 
 	{
-	
 		if(list.length == 1)
 		{
 		return list;
@@ -25,23 +23,18 @@ public class sortem
 		}
 	}
 
-//	public static int partition(int [] list, int front, int back)
-	{
-		
-	}
-	
 	public static void quickSort(int [] list1, int front, int back) 
 	{
 		
 	}
 	
-	//helpers
+	//base methods
 	public static String[] merge(String [] list1, String [] list2) 
 	{
 		//Precondition : Both lists are sorted
 		//Takes two arrays and merges them in ascending order
 	
-		String [] full = new String [(list1.length) + (list2.length)-1]; //i made it work but am confused about why its minus 1 and not 2
+		String [] full = new String [(list1.length) + (list2.length)]; //i made it work but am confused about why its minus 1 and not 2
 		
 		int j = 0;
 		int l = 0;
@@ -55,7 +48,6 @@ public class sortem
 				j++;
 				r++;
 			}			
-			
 			else
 			{
 				full[j] = list1[l];
@@ -63,7 +55,20 @@ public class sortem
 				l++;
 			}
 		}
-	
+		
+		while(j < full.length && l < list1.length) 
+		{
+			full[j] = list1[l];
+			j++;
+			l++;
+		}
+		
+		while(j < full.length && r < list2.length) 
+		{
+			full[j] = list2[r];
+			j++;
+			r++;
+		}
 		return full;
 	}
 	
@@ -92,4 +97,12 @@ public class sortem
 	    }
 	    return ni;
 	}
+	
+	//Swaps two items in an array of integers
+			public static void swapperi(int [] arr, int x, int y) 
+			{
+				int holder = arr[x];
+				arr[x] = arr[y];
+				arr[y] = holder;	
+			}
 }
