@@ -29,7 +29,7 @@ public class sortem
 		
 	}
 	
-	//base methods
+	//Base methods
 	public static String[] merge(String [] list1, String [] list2) 
 	{
 		//Precondition : Both lists are sorted
@@ -99,11 +99,12 @@ public class sortem
 	    return ni;
 	}
 	
+	//Helpers
 	//Swaps two items in an array of integers
-			public static void swapperi(int [] arr, int x, int y) 
-			{
-				int holder = arr[x];
-				arr[x] = arr[y];
-				arr[y] = holder;	
-			}
+	public static void swapperi(int [] arr, int x, int y) 
+	{
+		int holder = arr[x];
+		arr[x] = arr[y];
+		arr[y] = holder;	
+	}
 }
