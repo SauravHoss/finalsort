@@ -5,7 +5,7 @@ public class sortem
 
 	public static void main(String[] args) 
 	{
-		String [] test1 = {"va","gb","f","c"};
+		String [] test1 = {};
 		System.out.print(Arrays.toString(mergeSort(test1)));
 	}
 
