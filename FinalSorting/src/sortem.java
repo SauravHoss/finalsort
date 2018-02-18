@@ -5,7 +5,8 @@ public class sortem
 
 	public static void main(String[] args) 
 	{
-		String [] test1 = {};
+		//Case Sensitive Merge Sort (Caps go first then lowercase)
+		String [] test1 = {"my", "i","a","more","than", "love","anyone", "sister","lot"};
 		System.out.print(Arrays.toString(mergeSort(test1)));
 	}
 
