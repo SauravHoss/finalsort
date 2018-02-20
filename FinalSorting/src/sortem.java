@@ -5,15 +5,28 @@ public class sortem
 
 	public static void main(String[] args) 
 	{
-		
+		//Testing Arrays
 		String [] test1 = {"my", "i","love","sister"};
-		System.out.println("Original: "+Arrays.toString((test1)));
-		System.out.println("Final: "+Arrays.toString(mergeSort(test1)));
-		
 		int [] test2 = {8,9,4,7,9,4,2,6,9,0,1};
-		System.out.println("Original: "+Arrays.toString(test2));
+
+		//Mergesort Test
+		long start = System.nanoTime();
+		System.out.println("Mergesort Test");
+		System.out.println("	Original: "+Arrays.toString((test1)));
+		System.out.println("	Final: "+Arrays.toString(mergeSort(test1)));
+		long end = System.nanoTime();
+		long time = end - start;
+		System.out.println("						Time Taken: "+ time + " nanoseconds");
+		
+		//Quicksort Test
+		start = System.nanoTime();
+		System.out.println("Quicksort Test");
+		System.out.println("	Original: "+Arrays.toString(test2));
 		sortem.quickSort(test2, 0, test2.length-1); //Why do we have to do this Mr. Levin :C
-		System.out.println("Final :"+Arrays.toString(test2));
+		System.out.println("	Final : " +Arrays.toString(test2));
+		end = System.nanoTime();
+		time = end - start;
+		System.out.println("						Time Taken: "+ time + " nanoseconds");
 	}
 
 	//Case Sensitive Merge Sort (Caps go before lowercase)
