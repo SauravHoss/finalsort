@@ -5,11 +5,15 @@ public class sortem
 
 	public static void main(String[] args) 
 	{
-		//Case Sensitive Merge Sort (Caps go first then lowercase)
 		String [] test1 = {"my", "i","a","more","than", "love","anyone", "sister","lot"};
-		System.out.print(Arrays.toString(mergeSort(test1)));
+		System.out.println(Arrays.toString(mergeSort(test1)));
+		
+		int [] test2 = {8,9,4,7,9,4,2,6,9,0,1};
+		sortem.quickSort(test2, 0, test2.length-1);
+		System.out.print(Arrays.toString(test2));
 	}
 
+	//Case Sensitive Merge Sort (Caps go before lowercase)
 	public static String [] mergeSort(String [] list) 
 	{
 		if(list.length == 1)
@@ -24,10 +28,21 @@ public class sortem
 		}
 	}
 
-	public static void quickSort(int [] list1, int front, int back) 
-	{
-		
-	}
+	//Takes an array of integers and sorts them to be chronological 
+	public static void quickSort(int arr[], int low, int high)
+	 {
+	     if (low < high)
+	     {
+	         /* pi is partitioning index, arr[pi] is 
+	           now at right place */
+	         int pi = partition(arr, low, high);
+
+	         // Recursively sort elements before
+	         // partition and after partition
+	         quickSort(arr, low, pi-1);
+	         quickSort(arr, pi+1, high);
+	     }
+	 }
 	
 	//Base methods
 	public static String[] merge(String [] list1, String [] list2) 
@@ -73,31 +88,26 @@ public class sortem
 		return full;
 	}
 	
-	//partiton attempt with bf
-	public static int partition(int [] list, int front, int back)
-	{
-		//Takes an array, picks first number as pivot and puts smaller numbers on left side, bigger on right
-		//Why is the run time so long did I do it wrong?
-	    int base = list[0];    
-	    int ni = front;
-	    int last = back;
+	public static int partition(int arr[], int low, int high)
+	 {
+	     int pivot = arr[high]; 
+	     int i = (low - 1); // index of smaller element
+	     for (int j = low; j < high; j++)
+	     {
+	         // If current element is smaller than or
+	         // equal to pivot
+	         if (arr[j] <= pivot)
+	         {
+	             i++;
+	             // swap arr[i] and arr[j]
+	             swapperi(arr, i, j);
+	         }
+	     }
 
-	    for(int i = 1; i < back; i++)
-	    {
-	        if(list[i] <= base)
-	        {
-	           swapperi(list,i,i-1);            
-	            ni = i;
-	        } 
-	        else if(list[i] > base && last > i)
-	        {
-	            swapperi(list, i, last);
-	            last--;
-	            i--;
-	        }
-	    }
-	    return ni;
-	}
+	     // swap arr[i+1] and arr[high] (or pivot)
+	     swapperi(arr, i+1, high);
+	     return i+1;
+	 }
 	
 	//Helpers
 	//Swaps two items in an array of integers
