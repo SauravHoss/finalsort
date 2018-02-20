@@ -5,12 +5,15 @@ public class sortem
 
 	public static void main(String[] args) 
 	{
-		String [] test1 = {"my", "i","a","more","than", "love","anyone", "sister","lot"};
-		System.out.println(Arrays.toString(mergeSort(test1)));
+		
+		String [] test1 = {"my", "i","love","sister"};
+		System.out.println("Original: "+Arrays.toString((test1)));
+		System.out.println("Final: "+Arrays.toString(mergeSort(test1)));
 		
 		int [] test2 = {8,9,4,7,9,4,2,6,9,0,1};
-		sortem.quickSort(test2, 0, test2.length-1);
-		System.out.print(Arrays.toString(test2));
+		System.out.println("Original: "+Arrays.toString(test2));
+		sortem.quickSort(test2, 0, test2.length-1); //Why do we have to do this Mr. Levin :C
+		System.out.println("Final :"+Arrays.toString(test2));
 	}
 
 	//Case Sensitive Merge Sort (Caps go before lowercase)
@@ -33,12 +36,8 @@ public class sortem
 	 {
 	     if (low < high)
 	     {
-	         /* pi is partitioning index, arr[pi] is 
-	           now at right place */
 	         int pi = partition(arr, low, high);
-
-	         // Recursively sort elements before
-	         // partition and after partition
+	         
 	         quickSort(arr, low, pi-1);
 	         quickSort(arr, pi+1, high);
 	     }
