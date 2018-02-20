@@ -7,7 +7,7 @@ public class sortem
 	{
 		//Testing Arrays
 		String [] test1 = {"my", "i","love","sister"};
-		int [] test2 = {8,9,4,7,9,4,2,6,9,0,1};
+		int [] test2 = {8,9,3,7,32,4,2,6,9,0,1};
 
 		//Mergesort Test
 		long start = System.nanoTime();
@@ -57,6 +57,7 @@ public class sortem
 	 }
 	
 	//Base methods
+	//Merges two arrays
 	public static String[] merge(String [] list1, String [] list2) 
 	{
 		//Precondition : Both lists are sorted
@@ -100,25 +101,41 @@ public class sortem
 		return full;
 	}
 	
-	public static int partition(int arr[], int low, int high)
+	//Takes an array, calls first number pivot and places bigger numbers to the right, and the smaller numbers to the left
+	 public static int partition(int[] list, int front,int back) 
 	 {
-	     int pivot = arr[high]; 
-	     int i = (low - 1); // index of smaller element
-	     for (int j = low; j < high; j++)
+		 int low = front + 1;
+	     int pivot = list[front];
+
+	     while (back > low) 
 	     {
-	         // If current element is smaller than or
-	         // equal to pivot
-	         if (arr[j] <= pivot)
+	    	 while (low <= back && list[low] <= pivot) 
+	    	 {
+	    		 low++;
+	    	 }
+	         while (low <= back && list[back] > pivot) 
 	         {
-	             i++;
-	             // swap arr[i] and arr[j]
-	             swapperi(arr, i, j);
+	        	 back--;
+	         }
+	         if (back > low) 
+	         {
+	        	 swapperi(list,back,low);
 	         }
 	     }
 
-	     // swap arr[i+1] and arr[high] (or pivot)
-	     swapperi(arr, i+1, high);
-	     return i+1;
+	     while (back >= low && list[back] >= pivot)
+	     {
+	    	 back--;   
+	     }
+	     if (back > front)
+	     {
+	    	 swapperi(list,back,front);
+	    	 return back;
+	     } 
+	     else   
+	     {
+	    	 return front;
+	     }
 	 }
 	
 	//Helpers
